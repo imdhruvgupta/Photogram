@@ -1,0 +1,13 @@
+<h1>Listing Posts</h1>
+
+<a href='/posts/new'>Add new</a> <br><br>
+
+<table>
+ 
+  <% @posts.each do |post| %>
+    <%= image_tag post.image.url(:medium) %> <br>
+    <%= post.caption %>
+    <%= link_to 'Edit', edit_post_path(post) %> <br><br>
+  <% end %>
+</table>
+

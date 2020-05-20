@@ -1,0 +1,23 @@
+<h1>Edit Post</h1>
+
+<% if @post.image.exists? %>
+<%= image_tag @post.image.url(:medium) %><br/>
+<% end %>
+
+<%= form_with(model: @post, html: { multipart: true }, local: true) do |form| %>
+    <p>
+    <%= form.label :image %><br>
+    <%= form.file_field :image %>
+    </p>
+    
+    <p>
+    <%= form.label :caption %><br>
+    <%= form.text_field :caption %>
+    </p>
+    
+    <p>
+    <%= form.submit %>
+    </p>
+    
+<% end %>
+    
